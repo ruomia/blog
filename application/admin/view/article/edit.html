@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>后台</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/adminlte/AdminLTE.css">
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/adminlte/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini" style="background-color:#ecf0f5;">
+  <div class="box box-primary">
+    <div class="box-header with-border">
+      <h3 class="box-title">修改表单</h3>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+    <form role="form" action="/article/{$art.id}" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="_method" value="PUT">
+      <div class="box-body">
+        <div class="form-group">
+          <label>分类</label>
+          <select class="form-control" name="cat_id" style="width: 100%;">
+            <option value="0">请选择</option>
+            {volist name="data" id="vo"}
+            <option value="{$vo.id}" {if ($vo.id==$art.cat_id) selected {/if}>{$vo.name} </option> {/volist} </select>
+              </div> <div class="form-group">
+              <label for="title">标题</label>
+              <input type="text" name="title" class="form-control" id="title" placeholder="name" value="{$art.title}">
+        </div>
+        <div class="form-group">
+          <label for="">图片</label>
+          <div class="img_preview"><img src="/uploads/{$art.image}" alt="" width="120"></div>
+          <input type="file" name="image" class="preview">
+        </div>
+        <div class="form-group">
+          <label for="short_content">简介</label>
+          <input type="text" name="short_content" class="form-control" id="short_content" placeholder="内容简介" value="{$art.short_content}">
+        </div>
+        <div class="form-group">
+          <label for="">内容</label>
+          <textarea name="content" id="content" cols="30" rows="10">{$art.content}</textarea>
+        </div>
+        <div class="form-gorup">
+          <label for="">是否显示：</label>
+          <label>
+            <input type="radio" name="is_show" id="" value="0" {if ($art.is_show=='0' )}checked{/if}>不显示 </label>
+              <label>
+            <input type="radio" name="is_show" value="1" {if ($art.is_show=='1' )}checked{/if}>显示 </label> </div> <!--
+              /.box-body -->
+
+            <div class="box-footer">
+              <button type="submit" class="btn btn-primary">确定</button>
+            </div>
+    </form>
+  </div>
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/simditor-2.3.6/styles/simditor.css" />
+
+  <script type="text/javascript" src="/simditor-2.3.6/scripts/jquery.min.js"></script>
+  <script type="text/javascript" src="/simditor-2.3.6/scripts/module.js"></script>
+  <script type="text/javascript" src="/simditor-2.3.6/scripts/hotkeys.js"></script>
+  <script type="text/javascript" src="/simditor-2.3.6/scripts/uploader.js"></script>
+  <script type="text/javascript" src="/simditor-2.3.6/scripts/simditor.js"></script>
+  <script src="/js/img_preview.js"></script>
+  <script>
+    var editor = new Simditor({
+      textarea: $('#content'),
+      toolbar: [
+        'title',
+        'bold',
+        'italic',
+        'underline',
+        'strikethrough',
+        'fontScale',
+        'color',
+        'ol',
+        'ul',
+        'blockquote',
+        'code',
+        'table',
+        'link',
+        'image',
+        'hr',
+        'indent',
+        'outdent',
+        'alignment'
+      ],
+      upload: {
+        url: '/upload/upload',   // 服务器提交的地址
+        params: 'null',
+        fileKey: 'image',    // 服务器接收时的文件名
+        connectionCount: 3,
+        leaveConfirm: '文件上传中，真要离开吗？'
+      }
+    });
+  </script>
+</body>
+
+</html>

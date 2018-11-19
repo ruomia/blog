@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>后台</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/adminlte/AdminLTE.css">
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/adminlte/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+</head>
+<body class="hold-transition skin-blue sidebar-mini" style="background-color:#ecf0f5;">
+<div class="box box-default">
+  <div class="box-header with-border">
+    <h3 class="box-title">Bordered Table</h3>
+    <div class="box-tools pull-right">
+      <a href="/category/create"><i class="fa fa-plus"></i>新建</a>
+    </div>
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body">
+    <div class="row">
+      <div class="col-sm-6">
+       
+      </div>
+      <div class="col-sm-2 col-sm-offset-4">
+
+
+      </div>
+    </div>
+    <table class="table table-bordered">
+      <tr>
+        <th style="width: 10px">#</th>
+        <th>分类名称</th>
+        <th>上级ID</th>
+        <th style="width: 40px">Label</th>
+      </tr>
+      {volist name="data" id="vo"}
+      <tr>
+        <td>{$vo.id}</td>
+        <td>{$vo.name}</td>
+        <td>
+          {$vo.pid}
+        </td>
+        <td><a href="/category/{$vo.id}/edit"> <i class="fa fa-edit"></i></a> &nbsp; 
+        <a href="#" onclick="del('category', {$vo:id} )"><i class="fa fa-close"></i></a></td>
+      </tr>
+      {/volist}
+     
+    </table>
+  </div>
+</div>
+  
+
+    
+</body>
+
+</html>
+<script>
+  function del(url,id)
+  {
+    if(confirm('确定要删除吗？'))
+    {
+      var url = "/"+url+"/"+id;
+      var form = $(' <form action="'+url+'" method="POST">' +
+                  '<input type="hidden" name="_method" value="DELETE">' +
+                 ' </form> ');
+      form.appendTo('body').submit().remove();
+      return;
+    }
+  }
+  </script>
+

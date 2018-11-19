@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>内容页</title>
+  <link href="/css/base.css" rel="stylesheet">
+  <link href="/css/index.css" rel="stylesheet">
+  <link href="/css/m.css" rel="stylesheet">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/hc-sticky.js"></script>
+  <script src="/js/comm.js"></script>
+</head>
+
+<body>
+  <header id="header">
+    <div class="navbar">
+      <div class="topbox">
+        <p class="welcome">这是文字详情页面，网站所有的详情页面都是统一的，设有简介、关键字词标签，点赞功能！</p>
+        <div class="searchbox">
+          <div id="search_bar" class="search_bar">
+            <form id="searchform" action="[!--news.url--]e/search/index.php" method="post" name="searchform">
+              <input class="input" placeholder="想搜点什么呢.." type="text" name="keyboard" id="keyboard">
+              <input type="hidden" name="show" value="title" />
+              <input type="hidden" name="tempid" value="1" />
+              <input type="hidden" name="tbname" value="news">
+              <input type="hidden" name="Submit" value="搜索" />
+              <p class="search_ico"> <span></span></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header-navigation">
+      <nav>
+        <div class="logo"><a href="http://www.yangqq.com">杨青个人博客</a></div>
+        <h2 id="mnavh"><span class="navicon"></span></h2>
+        <ul id="starlist">
+          <li><a href="index.html">网站首页</a></li>
+          <li><a href="about.html">关于我</a></li>
+          <li><a href="share.html">模板分享</a></li>
+          <li><a href="list.html">博客日记</a></li>
+          <li class="menu"><a href="fengmian.html">学无止境</a>
+            <ul class="sub">
+              <li><a href="#">慢生活</a></li>
+              <li><a href="#">美文欣赏</a></li>
+            </ul>
+          </li>
+          <li><a href="info.html">慢生活</a></li>
+          <li><a href="time.html">时间轴</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="wrapper">
+    <main>
+      <h2 class="place">您现在的位置是：网站首页&gt; <a href="/">内容页</a></h2>
+      <div class="infosbox">
+        <div class="newsview">
+          <h3 class="news_title">{$article.title}</h3>
+          <div class="bloginfo">
+            <ul>
+              <li class="author"> </li>
+              <li class="lmname">博客日记</li>
+              <li class="timer">{$article.create_time}</li>
+              <li class="view">
+                <script src="/e/public/ViewClick/?classid=49&amp;id=884&amp;addclick=1"></script>297人已阅读</li>
+            </ul>
+          </div>
+         
+          <div class="news_about"><strong>简介</strong>{$article.short_content}</div>
+          <div class="news_con">
+            {$article.content|raw}
+          </div>
+        </div>
+        <div class="share">
+          <p class="diggit"><a href="JavaScript:makeRequest('/e/public/digg/?classid=49&amp;id=884&amp;dotop=1&amp;doajax=1&amp;ajaxarea=diggnum','EchoReturnedText','GET','');">
+              很赞哦！ </a>(<b id="diggnum">
+              <script type="text/javascript" src="/e/public/ViewClick/?classid=49&amp;id=884&amp;down=5"></script>19</b>)</p>
+        </div>
+        <div class="nextinfo">
+          <p>上一篇：<a href="/blogs/876.html">个人博客，我为什么要用帝国cms？</a></p>
+          <p>下一篇：<a href="/blogs/">返回列表</a></p>
+        </div>
+        <div class="otherlink">
+          <h2>相关文章</h2>
+          <ul>
+            <li><a href="/download/div/2018-04-22/815.html" title="html5个人博客模板《黑色格调》">html5个人博客模板《黑色格调》</a></li>
+            <li><a href="/download/div/2018-04-18/814.html" title="html5个人博客模板主题《清雅》">html5个人博客模板主题《清雅》</a></li>
+            <li><a href="/download/div/2018-03-18/807.html" title="html5个人博客模板主题《绅士》">html5个人博客模板主题《绅士》</a></li>
+            <li><a href="/download/div/2018-02-22/798.html" title="html5时尚个人博客模板-技术门户型">html5时尚个人博客模板-技术门户型</a></li>
+            <li><a href="/download/div/2017-09-08/789.html" title="html5个人博客模板主题《心蓝时间轴》">html5个人博客模板主题《心蓝时间轴》</a></li>
+            <li><a href="/download/div/2017-07-16/785.html" title="古典个人博客模板《江南墨卷》">古典个人博客模板《江南墨卷》</a></li>
+            <li><a href="/download/div/2017-07-13/783.html" title="古典风格-个人博客模板">古典风格-个人博客模板</a></li>
+            <li><a href="/download/div/2015-06-28/748.html" title="个人博客《草根寻梦》—手机版模板">个人博客《草根寻梦》—手机版模板</a></li>
+            <li><a href="/download/div/2015-04-10/746.html" title="【活动作品】柠檬绿兔小白个人博客模板">【活动作品】柠檬绿兔小白个人博客模板</a></li>
+            <li><a href="/jstt/bj/2015-01-09/740.html" title="【匆匆那些年】总结个人博客经历的这四年…">【匆匆那些年】总结个人博客经历的这四年…</a></li>
+          </ul>
+        </div>
+        <div class="news_pl">
+          <h2>文章评论</h2>
+          <div class="gbko"> </div>
+        </div>
+      </div>
+    </main>
+    <aside class="sidebar">
+        <div class="tjlm">
+            <h2 class="hometitle">文章分类</h2>
+            <ul>
+                {volist name="category" id="vo"}
+                <li><a href="about.html">{$vo.name}</a></li>
+                {/volist}
+            </ul>
+          </div>
+      <div class="newstw">
+        <ul class="sidenews">
+          <h2>最新文章</h2>
+          {volist name="news" id="vo"}
+          <li> <i><img src="/uploads/{$vo.image}"></i>
+            <p><a href="/">{$vo.title}</a></p>
+            <span>{$vo.create_time|substr=0,10}</span>
+          </li>
+          {/volist}
+        </ul>
+      </div>      
+    </aside>
+    <!--sidebar end-->
+  </div>
+  <!--wrapper end-->
+  <footer>
+    <div class="footer">
+      <div class="wxbox">
+        <ul>
+          <li><img src="/images/grwx.png"><span>我的微信</span></li>
+          <li><img src="/images/wx.jpg"><span>微信公众号</span></li>
+        </ul>
+      </div>
+      <div class="bzjj">
+        <h2>本站简介</h2>
+        <p>杨青个人博客，是一个站在web前端设计之路的女程序员个人网站，提供个人博客模板免费资源下载的个人原创网站。</p>
+      </div>
+      <div class="other">
+        <h2>网站版权</h2>
+        <p>未经授权禁止转载、摘编、复制或建立镜像，如有违反，追究法律责任。举报邮箱：476847113@qq.com</p>
+        <p>&nbsp;</p>
+        <p>备案号：蜀ICP备11002373号-1</p>
+      </div>
+    </div>
+  </footer>
+  <a href="#" class="cd-top">Top</a>
+</body>
+
+</html>
