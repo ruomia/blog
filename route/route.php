@@ -34,7 +34,7 @@ Route::resource('article','admin/article');
 // Route::get('admin/category', '/category');
 Route::get('content/:id','index/content');
 Route::get('about','index/about');
-
+Route::get('list/:id','index/list');
 return [
 
 ];

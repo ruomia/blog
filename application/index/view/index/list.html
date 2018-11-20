@@ -1,26 +1,24 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <meta charset="gbk">
-  <title>关于我</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="css/base.css" rel="stylesheet">
-  <link href="css/index.css" rel="stylesheet">
-  <link href="css/m.css" rel="stylesheet">
-  <script src="js/jquery.min.js"></script>
-  <script src="js/hc-sticky.js"></script>
-  <script src="js/comm.js"></script>
-  <!--[if lt IE 9]>
-<script src="js/modernizr.js"></script>
-<![endif]-->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>列表页</title>
+  <link href="/css/base.css" rel="stylesheet">
+  <link href="/css/index.css" rel="stylesheet">
+  <link href="/css/m.css" rel="stylesheet">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/hc-sticky.js"></script>
+  <script src="/js/comm.js"></script>
 </head>
 
 <body>
   <header id="header">
     <div class="navbar">
       <div class="topbox">
-        <p class="welcome">这是一个单页面，可以写简单的自我介绍，网站介绍，或者其他的页面，尽情的自由发挥吧！</p>
+        <p class="welcome">列表模板，经典的图片和文字布局。每一行间距以及图片大小，都是经过认真反复的测试再合理布局。</p>
         <div class="searchbox">
           <div id="search_bar" class="search_bar">
             <form id="searchform" action="[!--news.url--]e/search/index.php" method="post" name="searchform">
@@ -37,37 +35,45 @@
     </div>
     <div class="header-navigation">
       <nav>
-        <div class="logo"><a href="http://www.yangqq.com">个人博客</a></div>
+        <div class="logo"><a href="http://www.yangqq.com">杨青个人博客</a></div>
         <h2 id="mnavh"><span class="navicon"></span></h2>
         <ul id="starlist">
-            <li><a href="/">网站首页</a></li>
-            <li class="selected"><a href="/about">关于我</a></li>
+          <li><a href="/">网站首页</a></li>
+          <li><a href="/about">关于我</a></li>
+          <!-- <li class="menu"><a href="fengmian.html">学无止境</a>
+            <ul class="sub">
+              <li><a href="#">慢生活</a></li>
+              <li><a href="#">美文欣赏</a></li>
+            </ul>
+          </li>
+          <li><a href="info.html">慢生活</a></li>
+          <li><a href="time.html">时间轴</a></li> -->
         </ul>
       </nav>
     </div>
   </header>
   <div class="wrapper">
     <main>
-      <div class="aboutbox">
-        <h2 class="place">您现在的位置是：网站首页> <a href="/">关于我</a></h2>
-        <div class="abinfos">
-          <h3>关于我</h3>
-          <p>一个潜心学习PHP的新人，因为国内最流行ThinkPHP5，就想用tp5写一个个人博客，好在与laravel相差不大，得以博客写出，但因为技术不够，做的有些简陋，敬请谅解</p>
-          <p>目前属于在校大学生，不过最近我这一届的同学都纷纷开始了实习，让我也充满了兴趣，幻想着能不能进家好公司，找个好工作&ldquo;冥冥中该来则来，无处可逃&rdquo;。</p>
-          <p>也不是说什么都不会，起码写过商城，也做过外包，熟悉laravel，ThinkPHP。<br> 会点 Redis等软件进行网站性能的优化。<br>
-            掌握 Linux 操作系统的常用操作，能够搭建 LNMP、LAMP运行环境 &#13；
+      <h2 class="place">您现在的位置是：网站首页&gt; <a href="/">列表页</a></h2>
 
-          </p>
-
-          <p>前端也会一点，掌握 HTML、CSS、H5C3、bootstrap、JavaScript、jQuery等前端技术制作前端页面<br>
-            还有 vue全家桶，mock.js等前端技术编写前端应用
-
-          </p>
-          <p> <img src="images/back1.jpg" height="400"> </p>
-          <p></p>
-          <p>如果想要交流的话，邮箱：blc0927@163.com</p>
-
-        </div>
+      <div class="bloglist">
+        <ul>
+          {volist name="data" id="vo"}
+          <li> <i class="blogpic"><a href="/content/{$vo.id}"><img src="/uploads/{$vo.image}" alt=""> </a></i>
+            <dl>
+              <dt><a href="/content/{$vo.id}" target="_blank">{$vo.title}</a></dt>
+              <dd><span class="bloginfo">{$vo.short_content}</span>
+                <p class="timeinfo"><span class="lanmu"><a href="#" target="_blank">个人博客</a></span><span class="date">{$vo.create_time|substr=0,10}</span></p>
+                <a class="read" href="/content/{$vo.id}">阅读更多</a>
+              </dd>
+            </dl>
+          </li>
+          {/volist}
+        </ul>
+      </div>
+      <!--bloglist end-->
+      <div class="pagelist">
+        {$data|raw}
       </div>
     </main>
     <aside class="sidebar">
@@ -75,24 +81,24 @@
         <h2 class="hometitle">文章分类</h2>
         <ul>
           {volist name="category" id="vo"}
-          <li><a href="/list/{$vo.id}">{$vo.name}</a></li>
+          <li {if ($vo.id==$cat_id)}class="selected"{/if}><a href="/list/{$vo.id}">{$vo.name}</a></li>
           {/volist}
+
         </ul>
       </div>
       <div class="about">
         <h2 class="hometitle">关于本站</h2>
         <ul>
-          <div class="avatar"> <img src="images/tx.png" alt=""> </div>
+          <div class="avatar"> <img src="/images/tx.png" alt=""> </div>
           <p class="abname">dancesmile | 杨青</p>
           <p class="abtext"> 一个80后草根女站长！09年入行。一直潜心研究web前端技术，一边工作一边积累经验，分享一些个人博客模板，以及SEO优化等心得。 </p>
           <li><a class="xlwb" href="#" target="_blank"></a></li>
           <li><a class="txqq" href="" target="_blank"></a></li>
           <li><a class="rss" href="" target="_blank"></a></li>
-          <li class="wxpic"><a class="wx" href=""></a><img src="images/grwx.png"></li>
+          <li class="wxpic"><a class="wx" href=""></a><img src="/images/grwx.png"></li>
         </ul>
       </div>
-
-
+      <div class="ad"> <img src="/images/back2.jpg"> </div>
     </aside>
     <!--sidebar end-->
   </div>

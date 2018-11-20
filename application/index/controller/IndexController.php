@@ -21,10 +21,7 @@ class IndexController extends Controller
         // return 'fasdf';
     }
 
-    public function hello($name = 'ThinkPHP5')
-    {
-        return 'hello,' . $name;
-    }
+    
     public function content($id)
     {
         $article = Article::find($id);
@@ -39,6 +36,20 @@ class IndexController extends Controller
     }
     public function about()
     {
+        $category = Category::all();
+
+        $this->assign('category',$category);
+        return $this->fetch();
+    }
+
+    public function list($id)
+    {
+        $data = Article::where('cat_id',$id)->paginate(15);
+        $category = Category::all();
+
+        $this->assign('data',$data);
+        $this->assign('category',$category);
+        $this->assign('cat_id',$id);
         return $this->fetch();
     }
 }
