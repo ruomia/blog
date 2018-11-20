@@ -9,14 +9,11 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 
-Route::get('think', function () {
-    return 'hello,ThinkPHP5!';
-});
-Route::get('hello/:name', 'index/hello');
+Route::get('content/:id','index/content');
+Route::get('about','index/about');
+Route::get('list/:id','index/list');
 
-// 完全匹配
-// Route::get('category','admin/Category/index');
-// Route::get('category/create','admin/Category/create');
+
 
 // 后台
 // Route::group([],function(){
@@ -32,9 +29,7 @@ Route::resource('category','admin/category');
 Route::resource('article','admin/article');
 
 // Route::get('admin/category', '/category');
-Route::get('content/:id','index/content');
-Route::get('about','index/about');
-Route::get('list/:id','index/list');
+
 return [
 
 ];
