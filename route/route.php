@@ -9,9 +9,9 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 
-Route::get('content/:id','index/content');
-Route::get('about','index/about');
-Route::get('list/:id','index/list');
+Route::get('content/:id','Index/content');
+Route::get('about','Index/about');
+Route::get('list/:id','Index/list');
 
 
 
